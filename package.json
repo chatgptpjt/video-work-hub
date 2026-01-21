@@ -1,0 +1,23 @@
+{
+  "name": "video-work-hub",
+  "version": "1.0.0",
+  "description": "動画編集の仕事管理・情報蓄積用プロジェクト",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatgptpjt/video-work-hub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chatgptpjt/video-work-hub/issues"
+  },
+  "homepage": "https://github.com/chatgptpjt/video-work-hub#readme",
+  "dependencies": {
+    "playwright": "^1.57.0"
+  }
+}
