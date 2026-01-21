@@ -37,6 +37,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -45,6 +46,7 @@ body {
     color: var(--tiktok-white);
     background-color: var(--tiktok-black);
     overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
@@ -389,7 +391,9 @@ body {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-    max-height:615px;
+    max-height: 615px;
+    max-width: 325px;
+    width: 100%;
 }
 
 .tiktok-wrapper blockquote {
@@ -845,12 +849,16 @@ body {
     border-radius: 30px;
     padding: 8px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .tiktok-wrapper-small {
     border-radius: 24px;
     overflow: hidden;
     max-height: 615px;
+    width: 100%;
 }
 
 .tiktok-wrapper-small blockquote {
@@ -1832,12 +1840,12 @@ body {
     }
 
     .phone-frame-small {
-        max-width: 280px;
-        margin: 0 auto;
+        max-width: 100%;
+        padding: 6px;
     }
 
     .tiktok-wrapper-small {
-        max-height: 420px;
+        max-height: 500px;
     }
 
     .work-card {
