@@ -1849,6 +1849,14 @@ body {
         max-width: 160px;
         max-height: 340px;
         margin: 0 auto;
+        transform: scale(0.5);
+        transform-origin: top center;
+    }
+
+    .hero-video {
+        width: 160px;
+        height: 320px;
+        overflow: hidden;
     }
 
     .section-title {
@@ -1942,6 +1950,14 @@ body {
     .tiktok-wrapper {
         max-width: 130px;
         max-height: 280px;
+        transform: scale(0.4);
+        transform-origin: top center;
+    }
+
+    .hero-video {
+        width: 130px;
+        height: 260px;
+        overflow: hidden;
     }
 
     .phone-frame {
