@@ -377,6 +377,55 @@ body {
     position: relative;
 }
 
+/* TikTok埋め込み動画 */
+.hero-video {
+    flex-shrink: 0;
+    position: relative;
+}
+
+.tiktok-wrapper {
+    position: relative;
+    z-index: 2;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    max-height:615px;
+}
+
+.tiktok-wrapper blockquote {
+    margin: 0 !important;
+}
+
+/* TikTok埋め込みフォールバック非表示 */
+.tiktok-embed section,
+.tiktok-embed a {
+    display: none !important;
+}
+
+.video-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(ellipse, rgba(254, 44, 85, 0.3) 0%, transparent 60%);
+    z-index: 1;
+    filter: blur(40px);
+    animation: videoGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes videoGlow {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
 .phone-frame {
     width: 300px;
     height: 620px;
@@ -586,6 +635,11 @@ body {
     font-weight: 700;
 }
 
+.highlight {
+    color: var(--text-accent);
+    font-weight: 700;
+}
+
 .cta-button {
     display: inline-flex;
     align-items: center;
@@ -631,6 +685,40 @@ body {
 
 .cta-button:hover .arrow-icon {
     transform: translateX(5px);
+}
+
+/* 統一CTAボタン（固定CTAと同じデザイン） */
+.cta-button-unified {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #FE2C55 0%, #ff6b81 100%);
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(254, 44, 85, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-button-unified .cta-text {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.cta-button-unified .cta-arrow {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.cta-button-unified:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 40px rgba(254, 44, 85, 0.5);
+}
+
+.cta-button-unified:hover .cta-arrow {
+    transform: translateX(4px);
 }
 
 .scroll-indicator {
@@ -685,38 +773,97 @@ body {
 }
 
 .section-header {
-    text-align: center;
-    margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.section-header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.section-header-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0;
+    line-height: 1;
 }
 
 .section-number {
-    display: block;
     font-size: var(--font-small);
     font-weight: 700;
     letter-spacing: 3px;
     color: var(--text-accent);
-    margin-bottom: 10px;
+    line-height: 1;
 }
 
 .section-title {
     font-size: var(--font-h1);
     font-weight: 900;
     letter-spacing: 8px;
-    margin-bottom: 15px;
+    margin: 0;
     color: var(--text-primary);
+    line-height: 1;
 }
 
 .section-subtitle {
     font-size: var(--font-body);
     color: var(--text-secondary);
+    margin: 0;
     letter-spacing: 2px;
+    line-height: 1;
 }
 
 /* ========================================
-   Works Section
+   Portfolio Section
    ======================================== */
+.portfolio-section {
+    padding: 80px 0;
+    background: var(--tiktok-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+    justify-items: center;
+}
+
+.portfolio-video-item {
+    position: relative;
+}
+
+.phone-frame-small {
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 30px;
+    padding: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.tiktok-wrapper-small {
+    border-radius: 24px;
+    overflow: hidden;
+    max-height: 615px;
+}
+
+.tiktok-wrapper-small blockquote {
+    margin: 0 !important;
+}
+
+.portfolio-cta {
+    text-align: center;
+}
+
+/* Works Section（後方互換用） */
 .works {
-    padding: 120px 0;
+    padding: 80px 0;
     background: var(--tiktok-dark);
     position: relative;
     overflow: hidden;
@@ -725,14 +872,14 @@ body {
 .works-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-bottom: 80px;
+    gap: 24px;
+    margin-bottom: 50px;
 }
 
 .work-card {
     background: rgba(18, 18, 18, 0.95);
-    padding: 50px 40px;
-    border-radius: 30px;
+    padding: 36px 32px;
+    border-radius: 24px;
     position: relative;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -794,7 +941,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 30px;
+    border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     pointer-events: none;
     transition: border-color 0.5s;
@@ -805,21 +952,21 @@ body {
 }
 
 .work-icon-wrapper {
-    width: 80px;
-    height: 80px;
+    width: 64px;
+    height: 64px;
     background: var(--gradient-primary);
-    border-radius: 20px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     position: relative;
     z-index: 1;
 }
 
 .work-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     color: var(--tiktok-white);
     stroke-width: 1.5;
 }
@@ -853,14 +1000,14 @@ body {
 
 .portfolio-link {
     background: rgba(18, 18, 18, 0.95);
-    border-radius: 30px;
-    padding: 50px;
+    border-radius: 20px;
+    padding: 35px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .portfolio-header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .portfolio-badge {
@@ -946,53 +1093,80 @@ body {
    Profile Section
    ======================================== */
 .profile {
-    padding: 120px 0;
+    padding: 80px 0;
     background: var(--tiktok-black);
     position: relative;
     overflow: hidden;
 }
 
-.profile-content {
+.profile-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
-.profile-info {
-    background: linear-gradient(145deg, rgba(18, 18, 18, 0.97) 0%, rgba(25, 25, 35, 0.97) 100%);
-    padding: 50px;
-    border-radius: 30px;
-    border: 1px solid rgba(254, 44, 85, 0.3);
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+.profile-card {
+    background: rgba(18, 18, 18, 0.95);
+    padding: 32px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.profile-info.visible {
-    opacity: 1;
-    transform: translateX(0);
+.team-card {
+    text-align: center;
+    border-color: rgba(254, 44, 85, 0.3);
 }
 
-.profile-header {
+.team-card .team-logo {
+    margin: 0 auto 16px;
+}
+
+.team-card h3 {
+    font-size: var(--font-h2);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.team-subtitle {
+    font-size: var(--font-small);
+    color: var(--text-accent);
+    margin-bottom: 20px;
+}
+
+.team-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.team-detail {
     display: flex;
     align-items: center;
-    gap: 25px;
-    margin-bottom: 40px;
+    justify-content: center;
+    gap: 8px;
+    font-size: var(--font-small);
+    color: var(--text-secondary);
+}
+
+.team-detail i {
+    width: 16px;
+    height: 16px;
+    color: var(--text-accent);
 }
 
 .team-logo {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     background: var(--gradient-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
 }
 
 .team-logo span {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     font-weight: 900;
     color: var(--tiktok-white);
     letter-spacing: 2px;
@@ -1078,46 +1252,23 @@ body {
     color: var(--text-primary);
 }
 
-.profile-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.strength-card,
-.availability-card {
-    background: rgba(18, 18, 18, 0.95);
-    padding: 40px;
-    border-radius: 30px;
-    border: 1px solid rgba(37, 244, 238, 0.2);
-    opacity: 0;
-    transform: translateX(30px);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.strength-card.visible,
-.availability-card.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
 .strength-card {
-    transition-delay: 0.1s;
+    border-color: rgba(37, 244, 238, 0.2);
 }
 
 .availability-card {
-    transition-delay: 0.2s;
+    border-color: rgba(37, 244, 238, 0.2);
 }
 
 .card-icon-wrapper {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: var(--gradient-primary);
-    border-radius: 16px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .card-icon {
@@ -1131,20 +1282,8 @@ body {
 .availability-card h3 {
     font-size: var(--font-h2);
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     color: var(--text-primary);
-}
-
-.strengths-intro {
-    font-size: var(--font-body);
-    margin-bottom: 25px;
-    line-height: 2;
-    color: var(--text-secondary);
-}
-
-.strengths-intro .highlight {
-    color: var(--text-accent);
-    font-weight: 700;
 }
 
 .strengths-list {
@@ -1153,19 +1292,20 @@ body {
 
 .strengths-list li {
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
+    padding-left: 24px;
+    margin-bottom: 12px;
     color: var(--text-secondary);
-    font-size: var(--font-body);
+    font-size: var(--font-small);
+    line-height: 1.6;
 }
 
 .strengths-list li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 10px;
-    width: 8px;
-    height: 8px;
+    top: 8px;
+    width: 6px;
+    height: 6px;
     background: var(--gradient-primary);
     border-radius: 50%;
 }
@@ -1173,8 +1313,8 @@ body {
 .time-slots {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .time-slot {
@@ -1220,7 +1360,7 @@ body {
    Contact Section
    ======================================== */
 .contact {
-    padding: 120px 0;
+    padding: 70px 0;
     background: var(--tiktok-dark);
     position: relative;
     overflow: hidden;
@@ -1251,38 +1391,53 @@ body {
     right: -150px;
 }
 
-.contact-content {
-    text-align: center;
+.contact-card {
+    background: rgba(18, 18, 18, 0.95);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    max-width: 600px;
+    margin: 0 auto;
     position: relative;
     z-index: 10;
 }
 
-.contact-message {
-    font-size: var(--font-h2);
-    line-height: 2.2;
-    margin-bottom: 50px;
-    color: var(--text-secondary);
-}
-
-.highlight-box {
-    display: inline-block;
-    padding: 10px 25px;
-    background: var(--gradient-primary);
-    border-radius: 10px;
-    margin-top: 15px;
+.contact-lead {
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.contact-body {
+    font-size: var(--font-body);
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.contact-cta-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-note {
+    font-size: var(--font-small);
+    color: var(--text-secondary);
+    opacity: 0.7;
 }
 
 .contact-button {
     display: inline-block;
-    padding: 25px 60px;
+    padding: 20px 50px;
     background: transparent;
     color: var(--tiktok-white);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    border-radius: 60px;
+    border-radius: 50px;
     position: relative;
     overflow: hidden;
     transition: all 0.4s;
@@ -1315,10 +1470,192 @@ body {
 }
 
 /* ========================================
+   Fixed Floating CTA
+   ======================================== */
+.fixed-cta {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* サブCTA - TikTok実績 */
+.fixed-cta-sub {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fixed-cta-sub svg {
+    width: 18px;
+    height: 18px;
+    fill: #FE2C55;
+}
+
+.fixed-cta-sub span {
+    background: linear-gradient(90deg, #25F4EE, #FE2C55);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.fixed-cta-sub:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(254, 44, 85, 0.3);
+    border-color: rgba(254, 44, 85, 0.4);
+}
+
+/* メインCTA - 相談ボタン */
+.fixed-cta-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #FE2C55 0%, #ff6b81 100%);
+    border-radius: 50px;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    box-shadow:
+        0 4px 20px rgba(254, 44, 85, 0.4),
+        0 0 0 0 rgba(254, 44, 85, 0.4);
+    transition: all 0.3s;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow:
+            0 4px 20px rgba(254, 44, 85, 0.4),
+            0 0 0 0 rgba(254, 44, 85, 0.4);
+    }
+    50% {
+        box-shadow:
+            0 6px 30px rgba(254, 44, 85, 0.5),
+            0 0 0 8px rgba(254, 44, 85, 0);
+    }
+}
+
+.cta-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #25F4EE;
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+}
+
+.cta-main-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.cta-arrow {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.fixed-cta-main:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 40px rgba(254, 44, 85, 0.5);
+    animation: none;
+}
+
+.fixed-cta-main:hover .cta-arrow {
+    transform: translateX(4px);
+}
+
+/* マージアニメーション */
+.fixed-cta {
+    --merge-x: 0px;
+    --merge-y: 0px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s ease-out,
+                scale 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fixed-cta.merging {
+    transform: translate(var(--merge-x), var(--merge-y));
+    opacity: 0;
+    scale: 0.5;
+    pointer-events: none;
+}
+
+/* Contact CTAが光るエフェクト */
+#contact-cta {
+    transition: all 0.3s, box-shadow 0.6s ease-out;
+}
+
+.fixed-cta.merging ~ * #contact-cta,
+#contact-cta.merged {
+    box-shadow:
+        0 4px 20px rgba(254, 44, 85, 0.4),
+        0 0 30px rgba(254, 44, 85, 0.6),
+        0 0 60px rgba(254, 44, 85, 0.3);
+}
+
+@media (max-width: 768px) {
+    .fixed-cta {
+        bottom: 16px;
+        right: 12px;
+        left: 12px;
+        align-items: stretch;
+    }
+
+    .fixed-cta-sub {
+        justify-content: center;
+        padding: 10px 14px;
+        font-size: 0.75rem;
+    }
+
+    .fixed-cta-sub svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .fixed-cta-main {
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .cta-badge {
+        font-size: 0.6rem;
+        padding: 2px 8px;
+        top: -8px;
+    }
+
+    .cta-main-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
    Footer
    ======================================== */
 .footer {
-    padding: 60px 0 40px;
+    padding: 30px 0 20px;
     background: var(--tiktok-black);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -1369,7 +1706,7 @@ body {
 
 .footer-bottom {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 16px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1476,30 +1813,44 @@ body {
         border-radius: 28px;
     }
 
+    .hero-video {
+        margin-bottom: 30px;
+    }
+
+    .tiktok-wrapper {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
     .section-title {
         letter-spacing: 4px;
     }
 
-    .work-card {
-        padding: 35px 30px;
-    }
-
-    .profile-info {
-        padding: 35px;
-    }
-
-    .profile-header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile-details {
+    .portfolio-videos {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .strength-card,
-    .availability-card {
-        padding: 30px;
+    .phone-frame-small {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .tiktok-wrapper-small {
+        max-height: 420px;
+    }
+
+    .work-card {
+        padding: 28px 24px;
+    }
+
+    .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .profile-card {
+        padding: 24px;
     }
 
 
@@ -1560,19 +1911,19 @@ body {
 
 
     .work-icon-wrapper {
-        width: 60px;
-        height: 60px;
+        width: 52px;
+        height: 52px;
     }
 
     .work-icon {
-        width: 32px;
-        height: 32px;
+        width: 26px;
+        height: 26px;
     }
 
 
     .contact-button {
-        padding: 20px 40px;
-        font-size: 1rem;
+        padding: 16px 36px;
+        font-size: 0.95rem;
     }
 
     .portfolio-item {
