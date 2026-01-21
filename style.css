@@ -1852,9 +1852,8 @@ body {
     }
 
     .hero-video {
-        width: 45vw;
-        max-width: 220px;
-        height: 450px;
+        width: 180px;
+        height: 380px;
         overflow: hidden;
         position: relative;
     }
@@ -1863,7 +1862,9 @@ body {
         position: absolute;
         top: 0;
         left: 0;
-        transform: scale(0.7);
+        width: 325px;
+        max-width: none;
+        transform: scale(0.55);
         transform-origin: top left;
     }
 
@@ -1967,12 +1968,14 @@ body {
     }
 
     .hero-video {
-        width: 150px;
-        height: 300px;
+        width: 140px;
+        height: 280px;
     }
 
     .tiktok-wrapper {
-        transform: scale(0.5);
+        width: 325px;
+        max-width: none;
+        transform: scale(0.43);
     }
 
     .phone-frame {
