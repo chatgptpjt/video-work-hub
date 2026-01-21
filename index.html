@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <!-- Global Floating Icons -->
@@ -121,7 +122,7 @@
                 <div class="work-card" data-aos="fade-up">
                     <div class="card-glow"></div>
                     <div class="work-icon-wrapper">
-                        <span class="work-icon">🎬</span>
+                        <i data-lucide="clapperboard" class="work-icon"></i>
                     </div>
                     <h3>ショート動画編集</h3>
                     <p class="work-platform">TikTok / リール / YouTube Shorts / Lemon8</p>
@@ -136,7 +137,7 @@
                 <div class="work-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-glow"></div>
                     <div class="work-icon-wrapper">
-                        <span class="work-icon">🖼️</span>
+                        <i data-lucide="image" class="work-icon"></i>
                     </div>
                     <h3>サムネイル作成</h3>
                     <p class="work-platform">Canva</p>
@@ -151,7 +152,7 @@
                 <div class="work-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="card-glow"></div>
                     <div class="work-icon-wrapper">
-                        <span class="work-icon">📝</span>
+                        <i data-lucide="file-text" class="work-icon"></i>
                     </div>
                     <h3>台本・構成作成</h3>
                     <p class="work-platform">企画立案</p>
@@ -166,7 +167,7 @@
                 <div class="work-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="card-glow"></div>
                     <div class="work-icon-wrapper">
-                        <span class="work-icon">📸</span>
+                        <i data-lucide="camera" class="work-icon"></i>
                     </div>
                     <h3>店舗撮影</h3>
                     <p class="work-platform">大阪府内対応可能</p>
@@ -225,28 +226,36 @@
 
                     <div class="profile-details">
                         <div class="detail-item">
-                            <span class="detail-icon">📍</span>
+                            <div class="detail-icon-wrapper">
+                                <i data-lucide="map-pin" class="detail-icon"></i>
+                            </div>
                             <div>
                                 <span class="detail-label">拠点</span>
                                 <span class="detail-value">大阪府</span>
                             </div>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-icon">👥</span>
+                            <div class="detail-icon-wrapper">
+                                <i data-lucide="users" class="detail-icon"></i>
+                            </div>
                             <div>
                                 <span class="detail-label">体制</span>
                                 <span class="detail-value">チーム制</span>
                             </div>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-icon">🍽️</span>
+                            <div class="detail-icon-wrapper">
+                                <i data-lucide="utensils" class="detail-icon"></i>
+                            </div>
                             <div>
                                 <span class="detail-label">得意ジャンル</span>
                                 <span class="detail-value">グルメ・飲食店紹介</span>
                             </div>
                         </div>
                         <div class="detail-item">
-                            <span class="detail-icon">💻</span>
+                            <div class="detail-icon-wrapper">
+                                <i data-lucide="monitor" class="detail-icon"></i>
+                            </div>
                             <div>
                                 <span class="detail-label">使用ソフト</span>
                                 <span class="detail-value">Adobe Premiere Pro / Canva</span>
@@ -257,7 +266,9 @@
 
                 <div class="profile-cards">
                     <div class="strength-card">
-                        <div class="card-icon">💪</div>
+                        <div class="card-icon-wrapper">
+                            <i data-lucide="trophy" class="card-icon"></i>
+                        </div>
                         <h3>私たちの強み</h3>
                         <p class="strengths-intro">
                             一番の強みは<br>
@@ -273,7 +284,9 @@
                     </div>
 
                     <div class="availability-card">
-                        <div class="card-icon">⏰</div>
+                        <div class="card-icon-wrapper">
+                            <i data-lucide="clock" class="card-icon"></i>
+                        </div>
                         <h3>稼働時間</h3>
                         <div class="time-slots">
                             <div class="time-slot">
@@ -338,7 +351,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="copyright">&copy; 2024 MET. All Rights Reserved.</p>
+                <p class="copyright">&copy; 2026 MET. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
@@ -402,6 +415,9 @@
         document.querySelectorAll('.work-card, .strength-card, .availability-card, .profile-info').forEach(el => {
             observer.observe(el);
         });
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
     </script>
 </body>
 </html>
