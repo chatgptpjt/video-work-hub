@@ -1728,9 +1728,8 @@ body {
    ======================================== */
 @media (max-width: 1024px) {
     .hero-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 60px;
+        flex-direction: row;
+        gap: 40px;
     }
 
     .glitch-text {
@@ -1740,6 +1739,10 @@ body {
     .phone-frame {
         width: 260px;
         height: 540px;
+    }
+
+    .tiktok-wrapper {
+        max-width: 280px;
     }
 
     .profile-content {
@@ -1799,16 +1802,32 @@ body {
     }
 
     .hero {
-        padding: 100px 20px 60px;
+        padding: 100px 10px 60px;
+    }
+
+    .hero-content {
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
     }
 
     .glitch-text {
-        font-size: 3.5rem;
-        letter-spacing: 5px;
+        font-size: 2rem;
+        letter-spacing: 3px;
     }
 
     .hero-text .subtitle {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-text .description {
+        font-size: 0.8rem;
+        line-height: 1.6;
+    }
+
+    .hero-badge {
+        font-size: 0.65rem;
+        padding: 4px 10px;
     }
 
     .phone-frame {
@@ -1822,11 +1841,13 @@ body {
     }
 
     .hero-video {
-        margin-bottom: 30px;
+        margin-bottom: 0;
+        flex-shrink: 0;
     }
 
     .tiktok-wrapper {
-        max-width: 280px;
+        max-width: 160px;
+        max-height: 340px;
         margin: 0 auto;
     }
 
@@ -1896,14 +1917,31 @@ body {
         --font-small: 0.75rem;
     }
 
+    .hero-content {
+        gap: 12px;
+    }
+
     .glitch-text {
-        font-size: 2.8rem;
-        letter-spacing: 3px;
+        font-size: 1.6rem;
+        letter-spacing: 2px;
     }
 
     .hero-badge {
+        font-size: 0.6rem;
+        padding: 3px 8px;
+    }
+
+    .hero-text .subtitle {
+        font-size: 0.75rem;
+    }
+
+    .hero-text .description {
         font-size: 0.7rem;
-        padding: 6px 15px;
+    }
+
+    .tiktok-wrapper {
+        max-width: 130px;
+        max-height: 280px;
     }
 
     .phone-frame {
