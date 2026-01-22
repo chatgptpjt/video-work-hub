@@ -217,28 +217,11 @@ body {
     text-decoration: none;
 }
 
-.nav-logo .logo-text {
-    font-size: 1.8rem;
-    font-weight: 900;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: 3px;
-}
-
-.nav-logo .logo-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-glow);
-    border-radius: 50%;
-    filter: blur(20px);
-    opacity: 0.5;
-    z-index: -1;
+.nav-logo-img {
+    height: 32px;
+    width: auto;
+    border-radius: 0;
+    object-fit: cover;
 }
 
 .nav-menu {
@@ -248,13 +231,17 @@ body {
 }
 
 .nav-menu a {
-    color: var(--tiktok-white);
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 2px;
     position: relative;
     transition: all 0.3s;
+    background: linear-gradient(180deg, #ffffff 0%, #e8e8e8 25%, #b8b8b8 50%, #d0d0d0 75%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
 .nav-menu a::after {
@@ -273,7 +260,10 @@ body {
 }
 
 .nav-menu a:hover {
-    text-shadow: 0 0 20px rgba(254, 44, 85, 0.5);
+    background: linear-gradient(180deg, #ffffff 0%, #f5f5f5 30%, #e0e0e0 50%, #f0f0f0 70%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
 
 .hamburger {
@@ -383,6 +373,42 @@ body {
 .hero-video {
     flex-shrink: 0;
     position: relative;
+}
+
+/* 動画上の吹き出し */
+.video-callout {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.callout-text {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.callout-arrow {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-top: 0;
+    animation: arrowBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
 }
 
 .tiktok-wrapper {
@@ -810,8 +836,11 @@ body {
     font-weight: 900;
     letter-spacing: 8px;
     margin: 0;
-    color: var(--text-primary);
     line-height: 1;
+    background: linear-gradient(180deg, #ffffff 0%, #e8e8e8 25%, #b8b8b8 50%, #d0d0d0 75%, #ffffff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .section-subtitle {
@@ -830,6 +859,24 @@ body {
     background: var(--tiktok-dark);
     position: relative;
     overflow: hidden;
+}
+
+.tool-badge {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 30px;
+}
+
+.tool-badge-text {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(0, 150, 255, 0.15);
+    border: 1px solid rgba(0, 150, 255, 0.3);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #00d4ff;
+    letter-spacing: 1px;
 }
 
 .portfolio-videos {
@@ -1166,18 +1213,14 @@ body {
 .team-logo {
     width: 70px;
     height: 70px;
-    background: var(--gradient-primary);
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
-.team-logo span {
-    font-size: 1.3rem;
-    font-weight: 900;
-    color: var(--tiktok-white);
-    letter-spacing: 2px;
+.team-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .logo-ring {
@@ -1858,6 +1901,18 @@ body {
         position: relative;
     }
 
+    .video-callout {
+        top: -40px;
+    }
+
+    .callout-text {
+        font-size: 0.65rem;
+    }
+
+    .callout-arrow {
+        font-size: 1rem;
+    }
+
     .tiktok-wrapper {
         position: absolute;
         top: 0;
@@ -1976,6 +2031,18 @@ body {
     .hero-video {
         width: 140px;
         height: 280px;
+    }
+
+    .video-callout {
+        top: -32px;
+    }
+
+    .callout-text {
+        font-size: 0.55rem;
+    }
+
+    .callout-arrow {
+        font-size: 0.9rem;
     }
 
     .tiktok-wrapper {
